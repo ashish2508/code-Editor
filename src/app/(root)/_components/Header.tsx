@@ -27,11 +27,11 @@ async function Header() {
 
             <div className="flex flex-col">
               {/* For font-body check tailwind config */}
-              <span className="block text-lg font-extrabold text-amber-500 font-body ">
-                Type_dd
+              <span className="block text-lg font-extrabold text-amber-500 font-body" >
+                Type__dd
               </span>
               <span className="block text-xs text-pink-400/80 font-bold">
-                Simple type it
+                Simply type it
               </span>
             </div>
           </Link>
@@ -41,15 +41,16 @@ async function Header() {
             <Link
               href="/snippets"
               className="relative group flex items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-stone-600
-                hover:bg-amber-900/10 border border-stone-600 hover:border-cyan-950/50 transition-all duration-300 shadow-lg overflow-hidden"
+                hover:bg-amber-900/10 backdrop-blur  bg-amber-600/5 hover:bg-stone-900 shadow-lg overflow-hidden
+                transition-all duration-200 border border-slate-800/50 hover:border-zinc-500"
             >
               <div
                 className="absolute inset-0 bg-gradient-to-r from-slate-900/10
                 to-purple-800/10 opacity-0 group-hover:opacity-100 transition-opacity"
               />
               <span
-                className="text-sm font-medium relative z-10 group-hover:text-white
-                 transition-colors"
+                className="text-sm  relative z-10 group-hover:text-white
+                 transition-colors font-body"
               >
                 Snippets
               </span>
@@ -68,8 +69,8 @@ async function Header() {
           {!convexUser?.isPro && (
             <Link
               href="/pricing"
-              className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-amber-400/40 hover:border-amber-500/90 bg-slate-900/40
-              hover:bg-amber-600/70
+              className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-slate-400/40 hover:border-zinc-500/90 bg-red-900/40
+              hover:bg-rose-600/70
                 transition-all duration-300"
             >
               <span className="text-sm  text-white font-body">
@@ -77,9 +78,9 @@ async function Header() {
               </span>
             </Link>
           )}
-          {/* <SignedIn> */}
+          <SignedIn>
             <RunButton />
-          {/* </SignedIn> */}
+          </SignedIn>
 
           <div className="pl-3 border-l border-gray-800">
             <HeaderProfileBtn />
