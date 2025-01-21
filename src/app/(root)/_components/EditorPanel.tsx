@@ -8,7 +8,7 @@ import { RotateCcwIcon, ShareIcon, TypeIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { defineMonacoThemes, LANGUAGE_CONFIG } from "../_constants";
-import EditorPanelSkeleton from "./EditorPanelSkeleton";
+import {EditorPanelSkeleton} from "./EditorPanelSkeleton";
 // import ShareSnippetDialog from "./ShareSnippetDialog";
 
 function EditorPanel() {
@@ -32,9 +32,21 @@ function EditorPanel() {
 
 
 
-  const handleRefresh = () => { }
-  const handleEditorChange = () => { }
-  const handleFontSizeChange = (newSize: number) => { }
+  const handleRefresh = () => {
+    const defaultCode=LANGUAGE_CONFIG[language].defaultCode;
+    if(editor) editor.setValue(defaultCode);
+    localStorage.removeItem(`editor-code-${language}`);
+   }
+
+  const handleEditorChange = (value: string|undefined) => {
+if(value) localStorage.setItem(`editor-code-${language}`, value);
+  }
+
+  const handleFontSizeChange = (newSize: number) => {
+    const size=Math.min(Math.max(newSize,12),24);
+    setFontSize(size);
+    localStorage.setItem("editor-font-size", String(size));
+   }
   if (!mounted) return null
 
   return (
@@ -73,10 +85,11 @@ function EditorPanel() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleRefresh}
-                className="p-2 bg-inherit hover:bg-inherit/100 rounded-lg ring-1 ring-white/5 transition-colors"
+              className="p-2 bg-inherit hover:bg-inherit/100 rounded-lg ring-1 ring-white/5  bg-gradient-to-r
+               from-stone-800/50 to-stone-900/10 opacity-80 hover:opacity-100 transition-opacity"
                 aria-label="Reset to default code"
               >
-                <RotateCcwIcon className="size-5 text-gray-400" />
+                <RotateCcwIcon className="size-5 " />
               </motion.button>
               {/*Share button */}
               <motion.button
@@ -95,7 +108,7 @@ function EditorPanel() {
           <div className="relative group rounded-none overflow-hidden ring-1 ring-emerald-700/[0.05]">
             {clerk.loaded && (
               <Editor
-                height="600px"
+                height="700px"
                 language={LANGUAGE_CONFIG[language].monacoLanguage}
                 onChange={handleEditorChange}
                 theme={theme}

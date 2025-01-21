@@ -30,7 +30,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-b from-stone-900 to-zinc-950 text-gray-100 flex flex-col`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-b from-zinc-950 to-rose-950/30 text-gray-100 flex flex-col`}
         >
           <ConvexClientProvider>{children}</ConvexClientProvider>
           <Footer />
