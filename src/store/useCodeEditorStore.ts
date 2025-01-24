@@ -2,6 +2,7 @@ import { Monaco } from "@monaco-editor/react";
 import { create } from "zustand";
 
 import { CodeEditorState } from "./../types/index";
+import { LANGUAGE_CONFIG } from "@/app/(root)/_constants";
 const DEFAULT = {
   language: "javascript",
   theme: "vs-dark",
@@ -73,7 +74,66 @@ export const useCodeEditorStore = create<CodeEditorState>((set, get) => {
         error: null });
     },
     runCode: async () => {
-      //todo
+      const {language,getCode} =get()
+      const code=getCode()
+      if(!code){
+        set({error: "Please Enter Some Code"})
+        return;
+      }
+      set({isRunning:true, error:null, output:""})
+      try {
+const runtime=LANGUAGE_CONFIG[language].pistonRuntime
+const repsonse=await fetch("https://emkc.org/api/v2/piston/execute",{
+  method: "POST",
+  headers:{
+    "Content-type":"application/json",
+  },
+  body: JSON.stringify({
+    language: runtime.language,
+    version: runtime.version,
+    files:[{content:code}]
+  })
+})
+
+const data= await repsonse.json();
+console.log("from piston",data)
+
+//interpreted errors?
+if(data.message){
+set({error: data.message, executionResult: {code,output:"",error:data.message}})
+return
+}
+//compilation errors
+  if(data.compile && data.compile.code!==0){
+    const error =data.complile.stderr || data.compile.output;
+    set({
+      error,
+      executionResult:{
+        code,
+        output:"",
+        error
+      }
+    })
+    return
+  }
+//run time errors
+if(data.run && data.run.code !==0){
+    const error = data.run.stderr || data.run.output;
+		set({
+			error,
+			executionResult: {
+				code,
+				output: "",
+				error,
+			},
+		});
+		return;
+}
+//No errors found <->
+
+      } catch (error) {
+
+      }
     },
   };
 });
