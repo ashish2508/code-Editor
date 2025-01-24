@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import ConvexClientProvider from "@/components/providers/ConvexClientProvider";
 import { ClerkProvider } from "@clerk/nextjs";
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -19,6 +19,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Code Craft",
   description: "Share and run code snippets",
+  icons: {
+    icon:"./icon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -27,10 +30,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <ClerkProvider>
       <html lang="en">
+        <link
+          rel="icon"
+          href="@/app/icon.png"
+          type="image/png"
+          sizes="472x330"
+        />
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-b from-zinc-950 to-rose-950/30 text-gray-100 flex flex-col`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-b from-stone-600/30 to-zinc-900/30 text-gray-100 flex flex-col scrollbar-normal`}
         >
           <ConvexClientProvider>{children}</ConvexClientProvider>
           <Footer />

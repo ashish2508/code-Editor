@@ -36,7 +36,7 @@ body {
   }
 
   .scrollbar-style::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #3b82f6, #06b6d4);
+    background: linear-gradient(45deg, rebeccapurple, rgb(58, 15, 34));
     /* Hover effect */
   }
 
@@ -44,6 +44,35 @@ body {
     background: #1e293b;
     /* Background of the scrollbar track */
     border-radius: 2px;
+    /* Roundness of the scrollbar track */
+  }
+
+
+
+  .scrollbar-normal::-webkit-scrollbar {
+    width: 0px;
+    /* Width of the scrollbar */
+    height: 0px;
+    /* Height for horizontal scrollbars */
+  }
+
+  .scrollbar-normal::-webkit-scrollbar-thumb {
+    background: transparent;
+    /* Thumb color */
+    border-radius: 0px;
+    /* Roundness of the scrollbar thumb */
+  }
+
+  .scrollbar-normal::-webkit-scrollbar-thumb:hover {
+    /* background: linear-gradient(45deg, rebeccapurple, rgb(58, 15, 34)); */
+    /* Hover effect */
+    background: transparent;
+  }
+
+  .scrollbar-normal::-webkit-scrollbar-track {
+    background: transparent;
+    /* Background of the scrollbar track */
+    border-radius: 0px;
     /* Roundness of the scrollbar track */
   }
 }
