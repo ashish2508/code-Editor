@@ -5,7 +5,7 @@ import { User } from "lucide-react";
 function HeaderProfileBtn() {
   return (
     <>
-      <UserButton>
+      <UserButton >
         <UserButton.MenuItems>
           <UserButton.Link label="Profile" href="/profile" labelIcon={<User className="size-4" />}>
           </UserButton.Link>
