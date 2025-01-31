@@ -49,7 +49,7 @@ A mutation function looks like:
 import { mutation } from "./_generated/server";
 import { v } from "convex/values";
 
-export const myMutationFunction = mutation({
+export const myMutationFunction =({
   // Validators for arguments.
   args: {
     first: v.string(),
