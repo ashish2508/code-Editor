@@ -9,7 +9,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { defineMonacoThemes, LANGUAGE_CONFIG } from "../_constants";
 import { EditorPanelSkeleton } from "./EditorPanelSkeleton";
-// import ShareSnippetDialog from "./ShareSnippetDialog";
+import ShareSnippetDialog from "./ShareSnippetDialog";
 
 function EditorPanel() {
 
@@ -86,7 +86,7 @@ function EditorPanel() {
               whileTap={{ scale: 0.95 }}
               onClick={handleRefresh}
               className="p-2 bg-inherit hover:bg-inherit/100 rounded-lg ring-1 ring-white/5  bg-gradient-to-r
-               from-stone-800/50 to-stone-900/10 opacity-80 hover:opacity-100 transition-opacity"
+               from-lime-800/30 to-lime-900/30 opacity-80 hover:opacity-100 transition-opacity"
               aria-label="Reset to default code"
             >
               <RotateCcwIcon className="size-5 " />
@@ -97,7 +97,7 @@ function EditorPanel() {
               whileTap={{ scale: 0.98 }}
               onClick={() => setIsShareDialogOpen(true)}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg overflow-hidden bg-gradient-to-r
-               from-stone-800/50 to-stone-900/10 opacity-80 hover:opacity-100 transition-opacity"
+               from-teal-800/50 to-teal-900/70 opacity-80 hover:opacity-100 transition-opacity"
             >
               <ShareIcon className="size-5 text-white" />
               <span className="text-sm font-code text-white font-semibold ">Share</span>
@@ -153,7 +153,7 @@ function EditorPanel() {
           {!clerk.loaded && <EditorPanelSkeleton />}
         </div>
       </div>
-      {/* {isShareDialogOpen && <ShareSnippetDialog onClose={() => setIsShareDialogOpen(false)} />} */}
+      {isShareDialogOpen && <ShareSnippetDialog onClose={() => setIsShareDialogOpen(false)} />}
     </div>
   )
 }
