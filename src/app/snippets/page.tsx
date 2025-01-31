@@ -25,7 +25,7 @@ if(snippets===undefined) {
 		<div className="min-h-screen bg-gradient-to-b from-stone-700/30 to-zinc-900/40 text-gray-100 flex flex-col scrollbar-normal">
 <NavigationHeader />
 <div className="relative max-w-7xl mx-auto px-4 py-12">
-  
+
 </div>
 
     </div>
@@ -33,3 +33,4 @@ if(snippets===undefined) {
 }
 
 export default SnippetsPage;
+//3:36:47
