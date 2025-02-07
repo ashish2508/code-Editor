@@ -81,8 +81,8 @@ function SnippetDetailPage() {
 						<Editor
 							height="600px"
 							language={LANGUAGE_CONFIG[snippet.language].monacoLanguage}
-							value={'\n'+snippet.code+'\n'}
-							theme="dracula"
+							value={"\n" + snippet.code + "\n"}
+							theme="github-dark"
 							beforeMount={defineMonacoThemes}
 							options={{
 								minimap: { enabled: false },
@@ -94,12 +94,12 @@ function SnippetDetailPage() {
 								renderWhitespace: "selection",
 								fontFamily: '"Fira Code", "Cascadia Code", Consolas, monospace',
 								fontLigatures: false,
-                smoothScrolling: true,
-                cursorBlinking: "phase",
-                scrollbar: {
-                  verticalScrollbarSize: 4,
-                  horizontalScrollbarSize: 4,
-                },
+								smoothScrolling: true,
+								cursorBlinking: "phase",
+								scrollbar: {
+									verticalScrollbarSize: 4,
+									horizontalScrollbarSize: 4,
+								},
 							}}
 						/>
 					</div>

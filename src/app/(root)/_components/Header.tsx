@@ -64,8 +64,8 @@ async function Header() {
 					{!convexUser?.isPro && (
 						<Link
 							href="/pricing"
-							className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-slate-400/40 hover:border-zinc-500/90 bg-red-900/40
-              hover:bg-rose-600/70
+							className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-slate-400/40 hover:border-zinc-500/90 bg-fuchsia-600/40
+              hover:bg-purple-600/70
                 transition-all duration-300"
 						>
 							<span className="text-sm  text-white font-body">PRO</span>
@@ -74,7 +74,6 @@ async function Header() {
 					<SignedIn>
 						<RunButton />
 					</SignedIn>
-
 					<div className="pl-3 ">
 						<HeaderProfileBtn />
 					</div>
