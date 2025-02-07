@@ -2,15 +2,15 @@
 import { Snippet } from "@/types";
 import { useUser } from "@clerk/nextjs";
 import { useMutation } from "convex/react";
-import { api } from "../../../../convex/_generated/api";
 import { useState } from "react";
+import { api } from "../../../../convex/_generated/api";
 
+import StarButton from "@/components/StarButton";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Clock, Trash2, User } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import toast from "react-hot-toast";
-import StarButton from "@/components/StarButton";
 
 function SnippetCard({ snippet }: { snippet: Snippet }) {
 	const { user } = useUser();
@@ -68,7 +68,7 @@ function SnippetCard({ snippet }: { snippet: Snippet }) {
 								</div>
 								<div className="space-y-1">
 									<span className="px-3 py-1 bg-stone-500/50 text-white rounded-lg text-xs font-medium">
-										{(snippet.language).toUpperCase()}
+										{snippet.language.toUpperCase()}
 									</span>
 									<div className="flex items-center gap-2 text-xs text-gray-500">
 										<Clock className="size-3" />
