@@ -8,14 +8,11 @@ function CommentContent({ content }: { content: string }) {
 		<div className="max-w-none text-white">
 			{parts.map((part, index) => {
 				if (part.startsWith("```")) {
-					//           ```javascript
-					// const name = "John";
-					// ```
 					const match = part.match(/```([\w-]*)\n([\s\S]*?)\n```/);
 
 					if (match) {
 						const [, language, code] = match;
-						// return <CodeBlock language={language} code={code} key={index} />;
+						return <CodeBlock language={language} code={code} key={index} />;
 					}
 				}
 
