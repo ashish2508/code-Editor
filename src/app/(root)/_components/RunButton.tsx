@@ -42,14 +42,12 @@ function RunButton() {
         focus:outline-none
       `}
 		>
-			<div className="absolute inset-0 rounded-lg opacity-100 bg-emerald-500/70 w-20 h-10" />
+			<div className="absolute inset-0 rounded-lg opacity-50 bg-zinc-700/70 w-15 h-10" />
 
 			<div className="relative flex items-center gap-1">
 				{isRunning ? (
 					<>
-						<div className="relative flex items-center gap-5 w-12 h-6" >
-							<LoaderIcon className="size-4" />
-						</div>
+            <span className="text-stone-400">Executing</span>
 					</>
 				) : (
 					<>
