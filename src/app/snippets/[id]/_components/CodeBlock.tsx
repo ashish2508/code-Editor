@@ -1,5 +1,5 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { atomOneDarkReasonable } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import CopyButton from "./CopyButton";
 
 const CodeBlock = ({ language, code }: { language: string; code: string }) => {
@@ -31,11 +31,12 @@ const CodeBlock = ({ language, code }: { language: string; code: string }) => {
 			<div className="relative">
 				<SyntaxHighlighter
 					language={language || "plaintext"}
-					style={a11yDark}
+					style={atomOneDarkReasonable}
 					customStyle={{
 						padding: "1rem",
 						margin: 0,
 					}}
+					background="oklch(0.444 0.011 73.639/0.3);"
 					showLineNumbers={true}
 					wrapLines={true} // wrap long lines
 				>
