@@ -17,69 +17,69 @@ async function Header() {
   });
 
   return (
-		<div className="relative z-10">
-			<div
-				className="flex items-center lg:justify-between justify-center
-        bg-stone-700/30 backdrop-blur-xl p-6 mb-4 rounded-lg"
-			>
-				<div className="hidden lg:flex items-center gap-8">
-					<Link href="/" className="flex items-center gap-3 group relative">
-						<div className="flex flex-col">
-							{/* For font-body check tailwind config */}
-							<span className="block text-lg font-extrabold text-amber-500 font-body">
-								Type__dd
-							</span>
-							<span className="block text-xs text-pink-400/80 font-bold">
-								Simply type it
-							</span>
-						</div>
-					</Link>
+    <div className="relative z-10">
+      <div
+        className="mb-4 flex items-center justify-center
+rounded-lg bg-stone-700/30 p-6 backdrop-blur-xl lg:justify-between"
+      >
+        <div className="hidden items-center gap-8 lg:flex">
+          <Link href="/" className="group relative flex items-center gap-3">
+            <div className="flex flex-col">
+              {/* For font-body check tailwind config */}
+              <span className="block font-body text-lg font-extrabold text-amber-500">
+                Type__dd
+              </span>
+              <span className="block text-xs font-bold text-pink-400/80">
+                Simply type it
+              </span>
+            </div>
+          </Link>
 
-					{/* Navigation */}
-					<nav className="flex items-center space-x-1">
-						<Link
-							href="/snippets"
-							className="relative group flex items-center gap-2 px-4 py-1.5 rounded-lg text-gray-300 bg-stone-600/80 hover:bg-stone-900 backdrop-blur border border-slate-800/50 hover:border-zinc-500 shadow-lg overflow-hidden transition-colors duration-400"
-						>
-							<div
-								className="absolute inset-0 bg-gradient-to-r from-slate-900/10
-                to-purple-800/10 opacity-0 group-hover:opacity-100 transition-opacity"
-							/>
-							<span
-								className="text-sm  relative z-10 group-hover:text-white
-                 transition-colors font-body"
-							>
-								Snippets
-							</span>
-						</Link>
-					</nav>
-				</div>
+          {/* Navigation */}
+          <nav className="flex items-center space-x-1">
+            <Link
+              href="/snippets"
+              className="duration-400 group relative flex items-center gap-2 overflow-hidden rounded-lg border border-slate-800/50 bg-stone-600/80 px-4 py-1.5 text-gray-300 shadow-lg backdrop-blur transition-colors hover:border-zinc-500 hover:bg-stone-900"
+            >
+              <div
+                className="absolute inset-0 bg-gradient-to-r from-slate-900/10
+to-purple-800/10 opacity-0 transition-opacity group-hover:opacity-100"
+              />
+              <span
+                className="relative z-10 font-body text-sm
+transition-colors group-hover:text-white"
+              >
+                Snippets
+              </span>
+            </Link>
+          </nav>
+        </div>
 
-				<div className="flex items-center gap-4">
-					<div className="flex items-center gap-3">
-						<ThemeSelector />
-						<LanguageSelector hasAccess={Boolean(convexUser?.isPro)} />
-					</div>
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <ThemeSelector />
+            <LanguageSelector hasAccess={Boolean(convexUser?.isPro)} />
+          </div>
 
-					{!convexUser?.isPro && (
-						<Link
-							href="/pricing"
-							className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-slate-400/40 hover:border-zinc-500/90 bg-fuchsia-600/40
-              hover:bg-purple-600/70
-                transition-all duration-300"
-						>
-							<span className="text-sm  text-white font-body">PRO</span>
-						</Link>
-					)}
-					<SignedIn>
-						<RunButton />
-					</SignedIn>
-					<div className="pl-3 ">
-						<HeaderProfileBtn />
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+          {!convexUser?.isPro && (
+            <Link
+              href="/pricing"
+              className="flex items-center gap-2 rounded-lg border border-slate-400/40 bg-fuchsia-600/40 px-4 py-1.5 transition-all
+duration-300
+hover:border-zinc-500/90 hover:bg-purple-600/70"
+            >
+              <span className="font-body text-sm text-white">PRO</span>
+            </Link>
+          )}
+          <SignedIn>
+            <RunButton />
+          </SignedIn>
+          <div className="pl-3">
+            <HeaderProfileBtn />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 export default Header;
