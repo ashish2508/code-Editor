@@ -7,7 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import { LANGUAGE_CONFIG } from "../_constants";
 import useMounted from "@/hooks/useMounted";
 
-
 function LanguageSelector({ hasAccess }: { hasAccess: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const mounted = useMounted();
@@ -17,7 +16,10 @@ function LanguageSelector({ hasAccess }: { hasAccess: boolean }) {
   const currentLanguageObj = LANGUAGE_CONFIG[language];
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -36,8 +38,10 @@ function LanguageSelector({ hasAccess }: { hasAccess: boolean }) {
   if (!mounted) return null;
 
   return (
-    <div className="relative items-center flex bg-stone-700/30 backdrop:blur-sm  hover:bg-stone-900 rounded-lg transition-all duration-200 border border-teal-950/50 hover:border-zinc-500"
-      ref={dropdownRef}>
+    <div
+      className="relative items-center flex bg-stone-700/30 backdrop:blur-sm  hover:bg-stone-900 rounded-lg transition-all duration-200 border border-teal-950/50 hover:border-zinc-500"
+      ref={dropdownRef}
+    >
       <motion.button
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
@@ -83,8 +87,9 @@ function LanguageSelector({ hasAccess }: { hasAccess: boolean }) {
            rounded-xl border  shadow-2xl py-2 z-50"
           >
             <div className="px-3 pb-2 mb-2 border-b border-gray-800/50">
-
-              <p className="text-sm font-medium text-gray-200/50">Select Language</p>
+              <p className="text-sm font-medium text-gray-200/50">
+                Select Language
+              </p>
             </div>
 
             {/*the scrollbar, check globa.css for scrollbar-style */}

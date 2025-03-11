@@ -3,57 +3,57 @@ import type { Id } from "../../../../../convex/_generated/dataModel";
 import CommentContent from "./CommentContent";
 
 interface CommentProps {
-	comment: {
-		_id: Id<"snippetComments">;
-		_creationTime: number;
-		userId: string;
-		userName: string;
-		snippetId: Id<"snippets">;
-		content: string;
-	};
-	onDelete: (commentId: Id<"snippetComments">) => void;
-	currentUserId?: string;
-	isDeleting: boolean;
+  comment: {
+    _id: Id<"snippetComments">;
+    _creationTime: number;
+    userId: string;
+    userName: string;
+    snippetId: Id<"snippets">;
+    content: string;
+  };
+  onDelete: (commentId: Id<"snippetComments">) => void;
+  currentUserId?: string;
+  isDeleting: boolean;
 }
 function Comment({
-	comment,
-	currentUserId,
-	isDeleting,
-	onDelete,
+  comment,
+  currentUserId,
+  isDeleting,
+  onDelete,
 }: CommentProps) {
-	return (
-		<div className="group">
-			<div className="bg-stone-400/20 rounded-xl p-6 border border-teal-900/30 hover:border-cyan-950/50 transition-all">
-				<div className="flex items-start sm:items-center justify-between gap-4 mb-4">
-					<div className="flex items-center gap-3">
-						<div className="w-9 h-9 rounded-full bg-stone-900 flex items-center justify-center flex-shrink-0">
-							<User2Icon className="w-4 h-4 text-[#808086]" />
-						</div>
-						<div className="min-w-0">
-							<span className="block text-[#e1e1e3] font-medium truncate">
-								{comment.userName}
-							</span>
-							<span className="block text-sm text-gray-400">
-								{new Date(comment._creationTime).toLocaleDateString()}
-							</span>
-						</div>
-					</div>
+  return (
+    <div className="group">
+      <div className="bg-stone-400/20 rounded-xl p-6 border border-teal-900/30 hover:border-cyan-950/50 transition-all">
+        <div className="flex items-start sm:items-center justify-between gap-4 mb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full bg-stone-900 flex items-center justify-center flex-shrink-0">
+              <User2Icon className="w-4 h-4 text-[#808086]" />
+            </div>
+            <div className="min-w-0">
+              <span className="block text-[#e1e1e3] font-medium truncate">
+                {comment.userName}
+              </span>
+              <span className="block text-sm text-gray-400">
+                {new Date(comment._creationTime).toLocaleDateString()}
+              </span>
+            </div>
+          </div>
 
-					{comment.userId === currentUserId && (
-						<button
-							onClick={() => onDelete(comment._id)}
-							disabled={isDeleting}
-							className="opacity-0 group-hover:opacity-100 p-2 hover:bg-red-500/10 rounded-lg transition-all"
-							title="Delete comment"
-						>
-							<Trash2Icon className="w-4 h-4 text-red-400" />
-						</button>
-					)}
-				</div>
-				<CommentContent content={comment.content} />
-			</div>
-		</div>
-	);
+          {comment.userId === currentUserId && (
+            <button
+              onClick={() => onDelete(comment._id)}
+              disabled={isDeleting}
+              className="opacity-0 group-hover:opacity-100 p-2 hover:bg-red-500/10 rounded-lg transition-all"
+              title="Delete comment"
+            >
+              <Trash2Icon className="w-4 h-4 text-red-400" />
+            </button>
+          )}
+        </div>
+        <CommentContent content={comment.content} />
+      </div>
+    </div>
+  );
 }
 
 export default Comment;

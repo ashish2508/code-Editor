@@ -49,7 +49,7 @@ A mutation function looks like:
 import { mutation } from "./_generated/server";
 import { v } from "convex/values";
 
-export const myMutationFunction =({
+export const myMutationFunction = {
   // Validators for arguments.
   args: {
     first: v.string(),
@@ -67,7 +67,7 @@ export const myMutationFunction =({
     // Optionally, return a value from your mutation.
     return await ctx.db.get(id);
   },
-});
+};
 ```
 
 Using this mutation function in a React component looks like:

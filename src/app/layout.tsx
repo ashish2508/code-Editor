@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "Code Craft",
   description: "Share and run code snippets",
   icons: {
-    icon:"./icon.ico",
+    icon: "./icon.ico",
   },
 };
 
@@ -31,7 +31,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-
     <ClerkProvider>
       <html lang="en">
         <link

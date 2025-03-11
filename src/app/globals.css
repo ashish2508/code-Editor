@@ -47,8 +47,6 @@ body {
     /* Roundness of the scrollbar track */
   }
 
-
-
   .scrollbar-normal::-webkit-scrollbar {
     width: 0px;
     /* Width of the scrollbar */
