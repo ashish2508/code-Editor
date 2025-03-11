@@ -41,7 +41,7 @@ focus:outline-none
 disabled:cursor-not-allowed
 `}
     >
-      <div className="w-15 absolute inset-0 h-10 rounded-lg bg-zinc-700/70 opacity-50" />
+      <div className="w-15 absolute inset-0 h-10 rounded-lg bg-teal-500 opacity-50" />
 
       <div className="relative flex items-center gap-1">
         {isRunning ? (

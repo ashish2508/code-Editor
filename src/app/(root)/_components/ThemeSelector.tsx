@@ -2,14 +2,23 @@
 
 import { useCodeEditorStore } from "@/store/useCodeEditorStore";
 import { AnimatePresence, motion } from "framer-motion";
-import { CircleOff, Github, HeartPulse, Laptop, LeafyGreen, Moon, Palette, Sun } from "lucide-react";
+import {
+  CircleOff,
+  Github,
+  HeartPulse,
+  Laptop,
+  LeafyGreen,
+  Moon,
+  Palette,
+  Sun,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { THEMES } from "../_constants";
 import useMounted from "@/hooks/useMounted";
 
 function ThemeSelector() {
   const [isOpen, setIsOpen] = useState(false);
-  const mounted=useMounted();
+  const mounted = useMounted();
   const { theme, setTheme } = useCodeEditorStore();
   const dropDownRef = useRef<HTMLDivElement>(null);
   const [isClient, setIsClient] = useState(false);
@@ -18,10 +27,12 @@ function ThemeSelector() {
     setIsClient(true);
   }, []);
 
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropDownRef.current && !dropDownRef.current.contains(event.target as Node))
+      if (
+        dropDownRef.current &&
+        !dropDownRef.current.contains(event.target as Node)
+      )
         setIsOpen(false);
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -39,10 +50,10 @@ function ThemeSelector() {
     "vs-dark": <Moon className="size-4" />,
     "vs-light": <Sun className="size-4" />,
     "github-dark": <Github className="size-4" />,
-    "monokai": <Laptop className="size-4" />,
+    monokai: <Laptop className="size-4" />,
     "solarized-dark": <CircleOff className="size-4" />,
-    "dracula": <HeartPulse className="size-4" />,
-    "polykai": <LeafyGreen className="size-4" />,
+    dracula: <HeartPulse className="size-4" />,
+    polykai: <LeafyGreen className="size-4" />,
   };
   return (
     <div className="relative" ref={dropDownRef}>
@@ -74,7 +85,9 @@ function ThemeSelector() {
             rounded-xl border border-amber-950/30 shadow-2xl py-2 z-50"
           >
             <div className="px-2 pb-2 mb-2 border-b border-gray-800/50">
-              <p className="text-sm font-medium text-gray-200/50 px-2">Select Theme</p>
+              <p className="text-sm font-medium text-gray-200/50 px-2">
+                Select Theme
+              </p>
             </div>
             {THEMES.map((t, index) => (
               <motion.button
@@ -91,7 +104,9 @@ function ThemeSelector() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-600/5 to-emerald-900/5 opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                <div className={`flex items-center justify-center size-8 rounded-lg ${theme === t.id ? "bg-stone-900/10 text-cyan-800" : "bg-gray-800/50 text-gray-400"} group-hover:scale-110 transition-all duration-200`}>
+                <div
+                  className={`flex items-center justify-center size-8 rounded-lg ${theme === t.id ? "bg-stone-900/10 text-cyan-800" : "bg-gray-800/50 text-gray-400"} group-hover:scale-110 transition-all duration-200`}
+                >
                   {THEME_ICONS[t.id] || <CircleOff className="w-4 h-4" />}
                 </div>
                 <span className="flex-1 text-left group-hover:text-white transition-colors">

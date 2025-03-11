@@ -371,7 +371,7 @@ export const THEME_DEFINITONS = {
       "editor.inactiveSelectionBackground": "#264f7855",
     },
   },
-  "monokai": {
+  monokai: {
     base: "vs-dark",
     inherit: true,
     rules: [
@@ -419,7 +419,7 @@ export const THEME_DEFINITONS = {
       "editor.selectionHighlightBackground": "#073642",
     },
   },
-  "dracula": {
+  dracula: {
     base: "vs-dark",
     inherit: true,
     rules: [
@@ -442,7 +442,7 @@ export const THEME_DEFINITONS = {
       "editor.inactiveSelectionBackground": "#6272a4",
     },
   },
-  "polykai": {
+  polykai: {
     base: "vs-dark",
     inherit: true,
     rules: [
@@ -467,8 +467,7 @@ export const THEME_DEFINITONS = {
       "editorCursor.foreground": "#f8f8f8",
     },
   },
-
-  };
+};
 
 // Helper function to define themes in Monaco
 export const defineMonacoThemes = (monaco: Monaco) => {

@@ -38,7 +38,9 @@ http.route({
       }) as WebhookEvent;
     } catch (err) {
       console.error("Error verifying webhook", err);
-      return new Response("Error occurred -- invalid svix signature", { status: 400 })
+      return new Response("Error occurred -- invalid svix signature", {
+        status: 400,
+      });
     }
     const eventType = evt.type;
     if (eventType === "user.created") {
@@ -47,18 +49,18 @@ http.route({
       const email = email_addresses[0].email_address;
       const name = `${first_name || ""} ${last_name || ""}`.trim();
 
-    try {
-      await ctx.runMutation(api.users.syncUser, {
-        userId: id,
-        email,
-        name,
-      });
-    } catch (err) {
-      console.log("Error while creating the User", err);
-      return new Response("Error while creating the User", { status: 500 })
+      try {
+        await ctx.runMutation(api.users.syncUser, {
+          userId: id,
+          email,
+          name,
+        });
+      } catch (err) {
+        console.log("Error while creating the User", err);
+        return new Response("Error while creating the User", { status: 500 });
+      }
     }
-  }
-    return new Response("Webhook processed successfully", { status: 200 })
+    return new Response("Webhook processed successfully", { status: 200 });
   }),
 });
 export default http;

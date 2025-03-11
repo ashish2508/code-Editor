@@ -8,12 +8,12 @@ import NavigationHeader from "@/components/NavigationHeader";
 import ProfileHeader from "./_components/ProfileHeader";
 import ProfileHeaderSkeleton from "./_components/ProfileHeaderSkeleton";
 import {
-	ChevronRight,
-	Clock,
-	Code,
-	ListVideo,
-	Loader2,
-	Star,
+  ChevronRight,
+  Clock,
+  Code,
+  ListVideo,
+  Loader2,
+  Star,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -22,57 +22,57 @@ import StarButton from "@/components/StarButton";
 import CodeBlock from "./_components/CodeBlock";
 
 const TABS = [
-	{
-		id: "executions",
-		label: "Code Executions",
-		icon: ListVideo,
-	},
-	{
-		id: "starred",
-		label: "Starred Snippets",
-		icon: Star,
-	},
+  {
+    id: "executions",
+    label: "Code Executions",
+    icon: ListVideo,
+  },
+  {
+    id: "starred",
+    label: "Starred Snippets",
+    icon: Star,
+  },
 ];
 
 function ProfilePage() {
-	const { user, isLoaded } = useUser();
-	const router = useRouter();
-	const [activeTab, setActiveTab] = useState<"executions" | "starred">(
-		"executions"
-	);
+  const { user, isLoaded } = useUser();
+  const router = useRouter();
+  const [activeTab, setActiveTab] = useState<"executions" | "starred">(
+    "executions",
+  );
 
-	const userStats = useQuery(api.codeExecutions.getUserStats, {
-		userId: user?.id ?? "",
-	});
+  const userStats = useQuery(api.codeExecutions.getUserStats, {
+    userId: user?.id ?? "",
+  });
 
-	const starredSnippets = useQuery(api.snippets.getStarredSnippets);
+  const starredSnippets = useQuery(api.snippets.getStarredSnippets);
 
-	const {
-		results: executions,
-		status: executionStatus,
-		isLoading: isLoadingExecutions,
-		loadMore,
-	} = usePaginatedQuery(
-		api.codeExecutions.getUserExecutions,
-		{
-			userId: user?.id ?? "",
-		},
-		{ initialNumItems: 5 }
-	);
+  const {
+    results: executions,
+    status: executionStatus,
+    isLoading: isLoadingExecutions,
+    loadMore,
+  } = usePaginatedQuery(
+    api.codeExecutions.getUserExecutions,
+    {
+      userId: user?.id ?? "",
+    },
+    { initialNumItems: 5 },
+  );
 
-	const userData = useQuery(api.users.getUser, { userId: user?.id ?? "" });
+  const userData = useQuery(api.users.getUser, { userId: user?.id ?? "" });
 
-	const handleLoadMore = () => {
-		if (executionStatus === "CanLoadMore") loadMore(5);
-	};
+  const handleLoadMore = () => {
+    if (executionStatus === "CanLoadMore") loadMore(5);
+  };
 
-	if (!user && isLoaded) return router.push("/");
+  if (!user && isLoaded) return router.push("/");
 
-	return (
-		<div className="min-h-screen bg-gradient-to-b from-stone-600/30 to-zinc-900/30">
+  return (
+		<div className="min-h-screen">
 			<NavigationHeader />
 
-			<div className="max-w-7xl mx-auto px-4 py-12  bg-gradient-to-b from-stone-600/30 to-zinc-900/30">
+			<div className="max-w-7xl mx-auto px-4 py-12">
 				{/* Profile Header */}
 
 				{userStats && userData && (
@@ -87,8 +87,8 @@ function ProfilePage() {
 
 				{/* Main content */}
 				<div
-					className="bg-gradient-to-br from-stone-700/30 to-zinc-900/30 rounded-3xl shadow-2xl
-        shadow-black/50 border border-gray-800/50 backdrop-blur-xl overflow-hidden"
+					className="rounded-sm shadow-xl
+       border border-gray-800/50 backdrop-blur-xl overflow-hidden"
 				>
 					{/* Tabs */}
 					<div className="border-b border-gray-800/50">
@@ -327,4 +327,3 @@ function ProfilePage() {
 	);
 }
 export default ProfilePage;
-//5:28:13
