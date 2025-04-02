@@ -1,7 +1,6 @@
 import { CodeIcon, SendIcon } from "lucide-react";
 import { useState } from "react";
 import CommentContent from "./CommentContent";
-// import CommentContent from "./CommentContent";
 
 interface CommentFormProps {
   onSubmit: (comment: string) => Promise<void>;

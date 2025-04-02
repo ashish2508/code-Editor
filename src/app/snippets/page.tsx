@@ -17,6 +17,7 @@ import {
   X,
 } from "lucide-react";
 import SnippetCard from "./_components/SnippetCard";
+import Image from "next/image";
 function SnippetsPage() {
   const snippets = useQuery(api.snippets.getSnippets);
   const [searchQuery, setSearchQuery] = useState("");
@@ -113,18 +114,18 @@ function SnippetsPage() {
                     group relative px-3 py-1.5 rounded-lg transition-all duration-200
                     ${
                       selectedLanguage === lang
-                        ? "text-gray-600 bg-stone-500/10 ring-2 ring-teal-700/50"
-                        : "text-gray-400 hover:text-gray-300 bg-zinc-700 hover:bg-zinc-800 ring-1 ring-gray-800"
+                        ? "text-gray-600 bg-emerald-600/10 ring-2 ring-teal-700/50"
+                        : "text-gray-400 hover:text-gray-300 bg-stone-700 hover:bg-zinc-800 ring-1 ring-gray-800"
                     }
                   `}
               >
                 <div className="flex items-center gap-2">
-                  <img
+                  <Image
                     src={`/${lang}.png`}
                     alt={lang}
                     className="w-4 h-4 object-contain"
                   />
-                  <span className="text-sm">{lang}</span>
+                  <span className="text-sm">{lang.toLocaleUpperCase()}</span>
                 </div>
               </button>
             ))}
@@ -195,7 +196,7 @@ function SnippetsPage() {
             <div className="text-center">
               <div
                 className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br
-                from-blue-500/10 to-purple-500/10 ring-1 ring-white/10 mb-6"
+                from-stone-600/40 to-stone-700/60 ring-1 ring-white/10 mb-6"
               >
                 <Code className="w-8 h-8 text-gray-400" />
               </div>
