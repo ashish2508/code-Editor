@@ -1,6 +1,5 @@
-
 import NavigationHeader from "@/components/NavigationHeader";
-import { ArrowRight, Command, Star } from "lucide-react";
+import { Command, Star } from "lucide-react";
 import Link from "next/link";
 
 function ProPlanView() {
@@ -25,7 +24,7 @@ function ProPlanView() {
 								Pro Plan is Active
 							</h1>
 							<p className="text-gray-400/60 mb-8 text-lg">
-              Try out the newly unlocked multiple Languages
+								Try out the newly unlocked multiple Languages
 							</p>
 
 							<Link
