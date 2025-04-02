@@ -11,19 +11,19 @@ function Footer() {
           </div>
           <div className="flex items-center gap-6">
             <Link
-              href="/support"
+              href="https://www.youtube.com/watch?v=xvFZjo5PgG0"
               className="text-gray-400 hover:text-gray-300 transition-colors"
             >
               Support
             </Link>
             <Link
-              href="/privacy"
+              href="https://www.youtube.com/watch?v=xvFZjo5PgG0"
               className="text-gray-400 hover:text-gray-300 transition-colors"
             >
               Privacy
             </Link>
             <Link
-              href="/terms"
+              href="https://www.youtube.com/watch?v=xvFZjo5PgG0"
               className="text-gray-400 hover:text-gray-300 transition-colors"
             >
               Terms
